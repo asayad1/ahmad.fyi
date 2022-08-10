@@ -1,0 +1,106 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.split {
+	width: 30%;
+	height: 100%;
+	top: 0;
+	position: fixed;
+}
+
+.left {
+	left: 0;
+	background-color: white;
+}
+
+.right {
+	right: 0;
+	background-color: black;
+}
+
+#title-text {
+	padding-left: 30px;
+	padding-top: 30px;
+	font-family: 'Poppins', sans-serif;
+	white-space: nowrap;
+	font-size: 7vw;
+	font-weight: 700;
+}
+
+#about {
+	color: white;
+}
+
+.row {
+	position:fixed;
+	bottom: 0;
+	margin: auto;
+	float: left;
+	display: flex;
+}
+  
+.column {
+flex: 33.33%;
+padding-left: 25px;
+padding-bottom: 15px;
+}
+
+#description-text {
+	width: 175%;
+	line-height: 1.3;
+	padding-left: 30px;
+	padding-top: 15px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 2vw;
+	font-weight: 300;
+}
+
+.my-likes {
+	width: 200%;
+	line-height: 1.3;
+	padding-left: 30px;
+	padding-top: 15px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 2vw;
+	font-weight: 300;
+}
+
+#text-link {
+	color: black;
+}
+
+li {
+    margin-left: 50px;
+    list-style-type: disc;
+}
+
+.contact-info {
+	width: 200%;
+	line-height: 1.3;
+	padding-left: 30px;
+	padding-top: 15px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 2vw;
+	font-weight: 300;
+}
+
+#email {
+	color: black;
+}
+
+.sidebar {
+	color: white;
+	width: 200%;
+	line-height: 3.5;
+	padding-left: 30px;
+	padding-top: 15px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 2vw;
+	font-weight: 700;	
+}
+
+div > div > p > a {
+	color: white;
+}
