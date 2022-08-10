@@ -89,3 +89,18 @@ li {
 #email {
 	color: black;
 }
+
+.sidebar {
+	color: white;
+	width: 200%;
+	line-height: 3.5;
+	padding-left: 30px;
+	padding-top: 15px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 2vw;
+	font-weight: 700;	
+}
+
+div > div > p > a {
+	color: white;
+}
