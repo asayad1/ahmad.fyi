@@ -35,6 +35,18 @@ html *
         margin-top: 60px;
         border-radius: 30px;
     }
+
+    .navbar
+    {
+        background-color: black;
+        color:white;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        text-align: center;
+        text-decoration: underline;
+    }
 }
 
 /* This is for desktop screens */
@@ -55,6 +67,18 @@ html *
         display: inline-block;
         margin-top: 60px;
         border-radius: 30px;
+    }
+
+    .navbar
+    {
+        background-color: black;
+        color:white;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        text-align: center;
+        text-decoration: underline;
     }
 }
 
