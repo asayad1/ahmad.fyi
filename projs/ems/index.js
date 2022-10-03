@@ -1,4 +1,3 @@
-
 // Button component 
 const Button = (props) => (
     // props.msg is text 
@@ -34,8 +33,6 @@ function Buttons()
     )
 }
 
-
-
 function App()
 {
     return(
@@ -45,6 +42,5 @@ function App()
         </div>
     )
 }
-
 
 ReactDOM.render(<App />, document.getElementById("root"))
