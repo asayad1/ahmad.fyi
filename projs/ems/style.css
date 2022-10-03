@@ -9,7 +9,19 @@ html *
 {
     .button
     {
-        color: red
+        /* Text Appearance*/
+        font-weight: 700;
+        font-size: 25px;
+        text-decoration: none;
+        color: red;
+    
+        /* Button Appearance*/
+        padding: 15px;
+        width: 200px;
+        text-align: center;
+        display: inline-block;
+        margin-top: 60px;
+        border-radius: 30px;
     }
 }
 
