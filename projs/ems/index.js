@@ -12,6 +12,16 @@ const Button = (props) => (
     </div>
 )
 
+// Navigation bar component at the top of the page 
+function Navbar()
+{
+    return (
+        <div className="navbar">
+            <h1> EMS Link Collection </h1>
+        </div>
+    )
+}
+
 // Buttons collection to be rendered
 function Buttons()
 {   
@@ -28,8 +38,13 @@ function Buttons()
 
 function App()
 {
-
+    return(
+        <div>
+            <Navbar />
+            <Buttons />
+        </div>
+    )
 }
 
 
-ReactDOM.render(<Buttons />, document.getElementById("root"))
+ReactDOM.render(<App />, document.getElementById("root"))

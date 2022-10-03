@@ -4,7 +4,7 @@ html *
 }
 
 
-
+/* This is for mobile screens */
 @media (min-width:320px)
 {
     .button
@@ -25,6 +25,7 @@ html *
     }
 }
 
+/* This is for desktop screens */
 @media (min-width:1025px)
 {
     .button
@@ -43,4 +44,16 @@ html *
         margin-top: 60px;
         border-radius: 30px;
     }
+}
+
+.navbar
+{
+    background-color: black;
+    color:white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    text-decoration: underline;
 }
