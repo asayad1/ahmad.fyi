@@ -5,7 +5,7 @@ const Button = (props) => (
     //props.color is color of the button 
     //props.id is individual id of each button
     <div>
-        <a className="button" id={props.id} href={props.link} target="none"  style={{backgroundColor:props.color}}>
+        <a className="button" id={props.id} href={props.link} target="_blank"  style={{backgroundColor:props.color}}>
             {props.msg}
         </a>
     </div>
@@ -36,9 +36,11 @@ function Buttons()
 function App()
 {
     return(
-        <div>
+        <div className="buttonCollection">
             <Navbar />
-            <Buttons />
+            <div>
+                <Buttons />
+            </div>
         </div>
     )
 }

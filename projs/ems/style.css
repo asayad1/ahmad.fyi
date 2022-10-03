@@ -15,6 +15,12 @@ html *
     text-decoration: underline;
 }
 
+.buttonCollection
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /* This is for mobile screens */
 @media (min-width:320px)
@@ -38,14 +44,7 @@ html *
 
     .navbar
     {
-        background-color: black;
-        color:white;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        text-align: center;
-        text-decoration: underline;
+        font-size: 15px;
     }
 }
 
@@ -62,23 +61,22 @@ html *
     
         /* Button Appearance*/
         padding: 15px;
-        width: 200px;
+        width: 500px;
         text-align: center;
         display: inline-block;
         margin-top: 60px;
         border-radius: 30px;
     }
 
+    .buttonCollection
+    {
+        margin-top: 5%;
+        width: 35%; /* Idk why this even works */
+    }
+
     .navbar
     {
-        background-color: black;
-        color:white;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        text-align: center;
-        text-decoration: underline;
+        font-size: 20px;
     }
 }
 
