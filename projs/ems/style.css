@@ -38,13 +38,13 @@ html *
         width: 200px;
         text-align: center;
         display: inline-block;
-        margin-top: 50%;
+        margin-top: 20%;
         border-radius: 100px;
     }
 
     .buttonCollection
     {
-        margin-top: 5%;
+        margin-top: 15%;
         width: 30%; /* Idk why this even works */
     }
 
