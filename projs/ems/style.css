@@ -29,23 +29,23 @@ html *
     {
         /* Text Appearance*/
         font-weight: 700;
-        font-size: 25px;
+        font-size: 40px;
         text-decoration: none;
         color: white;
     
         /* Button Appearance*/
-        padding: 15px;
+        padding: 50px;
         width: 200px;
         text-align: center;
         display: inline-block;
-        margin-top: 60px;
-        border-radius: 30px;
+        margin-top: 50%;
+        border-radius: 100px;
     }
 
     .buttonCollection
     {
         margin-top: 5%;
-        width: 35%; /* Idk why this even works */
+        width: 30%; /* Idk why this even works */
     }
 
 }
