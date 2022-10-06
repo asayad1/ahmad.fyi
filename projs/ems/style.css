@@ -31,7 +31,7 @@ html *
         font-weight: 700;
         font-size: 25px;
         text-decoration: none;
-        color: red;
+        color: white;
     
         /* Button Appearance*/
         padding: 15px;
@@ -42,10 +42,12 @@ html *
         border-radius: 30px;
     }
 
-    .navbar
+    .buttonCollection
     {
-        font-size: 15px;
+        margin-top: 5%;
+        width: 35%; /* Idk why this even works */
     }
+
 }
 
 /* This is for desktop screens */
