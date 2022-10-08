@@ -48,6 +48,11 @@ html *
         width: 30%; /* Idk why this even works */
     }
 
+    .navbar
+    {
+        height: 30%;
+    }
+
 }
 
 /* This is for desktop screens */
