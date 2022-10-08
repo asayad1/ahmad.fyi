@@ -44,22 +44,13 @@ html *
 
     .buttonCollection
     {
-        margin-left: 16%;
-        margin-top: 20%;
+        margin-top: 15%;
         width: 30%; /* Idk why this even works */
     }
 
     .navbar
     {
-        font-size: 20px;
-        background-color: black;
-        color:white;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        text-align: center;
-        text-decoration: underline;
+        
     }
 
 }
@@ -93,14 +84,6 @@ html *
     .navbar
     {
         font-size: 20px;
-        background-color: black;
-        color:white;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        text-align: center;
-        text-decoration: underline;       
     }
 }
 
