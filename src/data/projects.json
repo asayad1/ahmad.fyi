@@ -57,7 +57,7 @@
     "tags": ["Python", "PyTorch", "VAE", "Autoencoder", "Generative Models", "Visualization", "t-SNE", "UMAP", "Deep Learning"],
     "link": "",
     "accent": ["#14b8a6", "#6366f1"],
-    "image": "",
+    "image": "./src/assets/images/clawdia_shrunk_into_box.gif",
     "video": "",
     "poster": "",
     "embed": "",
