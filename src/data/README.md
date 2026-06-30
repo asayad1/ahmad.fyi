@@ -22,6 +22,15 @@ optional PDF) on the right.
 | `gallery`     | no       | Array of media items shown in the **modal** (see below). |
 | `paper`       | no       | A PDF (URL or `/public` path) rendered in the modal's right panel as an extra viewer item. |
 
+## Filter chips
+
+Above the carousel is a row of toggleable tag chips that filter the cards. These
+are **not** every tag — only the curated set listed in `filters.ts`
+(`FILTERABLE_TAGS`), in that order. A chip filters to projects whose `tags`
+include its exact string, and a chip only appears if at least one project uses
+it. To make a tag filterable, add it to `filters.ts` and make sure projects that
+should match carry that exact string in their `tags`.
+
 ## Cover priority
 
 The card cover uses the first available of: `embed` → `video` → `image`. If none

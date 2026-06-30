@@ -39,6 +39,7 @@ import {
 } from "vue";
 import PixelPanel from "./PixelPanel.vue";
 import ProjectModal from "./ProjectModal.vue";
+import { FILTERABLE_TAGS } from "../data/filters";
 
 const styles = useCssModule();
 
@@ -64,13 +65,37 @@ const page = ref(0);
 // 1 = next, -1 = previous; tracks direction for the slide transition.
 const dir = ref(1);
 
+// The currently selected tag filter; null shows every project.
+const activeTag = ref<string | null>(null);
+
+// The curated filter tags (see src/data/filters.ts), kept only when at least
+// one project actually uses them so we never show a chip that filters to none.
+const allTags = computed(() =>
+  FILTERABLE_TAGS.filter((t) => props.projects.some((p) => p.tags?.includes(t))),
+);
+
+const filteredProjects = computed(() =>
+  activeTag.value
+    ? props.projects.filter((p) => p.tags?.includes(activeTag.value!))
+    : props.projects,
+);
+
+// Clicking the active tag (or "All") clears the filter; otherwise apply it.
+// Either way reset to the first page so the new set starts from the top.
+const selectTag = (t: string | null) => {
+  const next = t === activeTag.value ? null : t;
+  activeTag.value = next;
+  dir.value = 1;
+  page.value = 0;
+};
+
 const pageCount = computed(() =>
-  Math.max(1, Math.ceil(props.projects.length / perPage.value)),
+  Math.max(1, Math.ceil(filteredProjects.value.length / perPage.value)),
 );
 
 const pageItems = computed(() => {
   const start = page.value * perPage.value;
-  return props.projects.slice(start, start + perPage.value);
+  return filteredProjects.value.slice(start, start + perPage.value);
 });
 
 const recompute = () => {
@@ -83,7 +108,7 @@ const recompute = () => {
   perPage.value = next;
   page.value = Math.min(
     Math.floor(firstVisible / next),
-    Math.max(0, Math.ceil(props.projects.length / next) - 1),
+    Math.max(0, Math.ceil(filteredProjects.value.length / next) - 1),
   );
 };
 
@@ -128,6 +153,31 @@ onUnmounted(() => observer?.disconnect());
       </h2>
     </div>
 
+    <div
+      :class="styles.filters"
+      role="group"
+      aria-label="Filter projects by tag"
+    >
+      <button
+        type="button"
+        :class="[styles.filter, activeTag === null ? styles.filterActive : '']"
+        :aria-pressed="activeTag === null"
+        @click="selectTag(null)"
+      >
+        All
+      </button>
+      <button
+        v-for="t in allTags"
+        :key="t"
+        type="button"
+        :class="[styles.filter, activeTag === t ? styles.filterActive : '']"
+        :aria-pressed="activeTag === t"
+        @click="selectTag(t)"
+      >
+        {{ t }}
+      </button>
+    </div>
+
     <div :class="styles.stageRow">
       <button
         v-if="pageCount > 1"
@@ -142,7 +192,7 @@ onUnmounted(() => observer?.disconnect());
       <div ref="stageRef" :class="styles.stage">
         <Transition :name="dir === 1 ? 'slideNext' : 'slidePrev'" mode="out-in">
           <div
-            :key="page"
+            :key="`${activeTag}-${page}`"
             :class="styles.grid"
             :style="{ gridTemplateColumns: `repeat(${perPage}, minmax(0, 1fr))` }"
           >
@@ -243,7 +293,49 @@ onUnmounted(() => observer?.disconnect());
 }
 
 .header {
+  margin-bottom: 22px;
+}
+
+/* Clickable tag chips that filter the carousel to matching projects. */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 28px;
+}
+
+.filter {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.filter:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-1px);
+}
+
+.filterActive,
+.filterActive:hover {
+  color: #0b0b0b;
+  font-weight: 600;
+  border-color: transparent;
+  background: linear-gradient(90deg, #ff7a00, #ffb347);
+  box-shadow: 0 6px 18px rgba(255, 110, 0, 0.25);
 }
 
 .title {
