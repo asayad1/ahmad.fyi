@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Catastrophic Forgetting in LLMs",
+    "description": "A study of catastrophic forgetting when GPT-2 small & medium is fine-tuned on the DailyDialog conversational dataset. Factual knowledge retention is tracked across training checkpoints using a QA benchmark derived from LAMA T-REx. The pipeline measures Knowledge Retention Rate, Fact Frequency Robustness (rare vs. common facts), and representation drift via cosine similarity of hidden states.",
+    "tags": ["Python", "PyTorch", "Transformers", "GPT", "LLM", "NLP", "Hugging Face", "Research"],
+    "link": "https://github.com/asayad1/CatastrophicForgetting",
+    "accent": ["#0a35f6", "#0098d9"],
+    "image": "./src/assets/images/clawdia_confused.gif",
+    "video": "",
+    "poster": "",
+    "embed": "",
+    "gallery": [],
+    "paper": "./src/assets/pdfs/Catastrophic Forgetting.pdf"
+  },
+  {
+    "title": "Compute-Optimal Tiny Transformers",
+    "description": "Replicating Chinchilla scaling laws at miniature scale. Tiny GPT-like models (12K–800K parameters) are trained on WikiText-103 across nine iso-compute FLOP budgets, with multiple seeds and two learning-rate schedules (matched and fixed-horizon). Validation losses are aggregated and fit to Chinchilla-style parametric loss surfaces, recovering compute-optimal model-size-to-token ratios and power-law scaling curves at small scale.",
+    "tags": ["Python", "PyTorch", "Scaling Laws", "Chinchilla", "LLM", "NLP", "Research"],
+    "link": "https://github.com/asayad1/SmallScalingLaws",
+    "accent": ["#f59e0b", "#f9ec00"],
+    "image": "./src/assets/images/clawdia_chinchilla.gif",
+    "video": "",
+    "poster": "",
+    "embed": "",
+    "gallery": [],
+    "paper": "./src/assets/pdfs/Scaling Laws at Small Scale.pdf"
+  },
+  {
+    "title": "Conversational AutoML",
+    "description": "An agentic system that runs automated machine learning on tabular data in response to natural-language questions. Six specialized agents — orchestration, feature engineering, a feature critic, analysis, a previous-results explainer, and a conversation meta-agent — interpret the user's intent, profile and preprocess the data, propose domain-agnostic feature transformations, and train a diverse set of candidate models evaluated by cross-validation, then explain the results conversationally. Multi-turn conversations track and reuse prior runs to avoid redundant retraining on follow-up questions.",
+    "tags": ["Python", "LLM", "Agents", "AutoML", "Machine Learning", "Ollama", "Agentic AI", "LangGraph"],
+    "link": "https://github.com/asayad1/Convo-AutoML",
+    "accent": ["#7d5be2", "#5118f5"],
+    "image": "./src/assets/images/clawdia_chats_with_lab_variant.gif",
+    "video": "",
+    "poster": "",
+    "embed": "",
+    "gallery": [],
+    "paper": ""
+  },
+  {
+    "title": "Are LLM Circuits Stable Under Prompt Variance?",
+    "description": "A mechanistic interpretability study probing whether the internal circuits a transformer uses to solve a task stay consistent when the prompt is reworded. Across a battery of prompt variants, circuit components and activation patterns are extracted and compared to test how robust learned circuits are to surface-level input changes — a question that bears directly on model interpretability and reliability. Built as the final project for the Deep Learning Using Transformers course at Johns Hopkins University.",
+    "tags": ["Python", "PyTorch", "Mechanistic Interpretability", "Transformers", "LLM", "Jupyter", "Research"],
+    "link": "https://github.com/asayad1/LLM-Prompt-Variance",
+    "accent": ["#22d3ee", "#818cf8"],
+    "image": "",
+    "video": "",
+    "poster": "",
+    "embed": "",
+    "gallery": [],
+    "paper": ""
+  },
+  {
+    "title": "Minesweeper with Deep Q-Networks",
+    "description": "A deep reinforcement learning agent that learns to play Minesweeper, navigating the game's partially observable, stochastic board to uncover safe cells while avoiding mines. A Deep Q-Network (DQN) pairs Q-learning with a neural network to learn a move policy directly from board state, extending DQN beyond the usual Atari benchmarks to a puzzle domain dominated by uncertainty. Accompanied by a written report, \"Navigating Stochastic Environments with Deep Q Networks.\"",
+    "tags": ["Python", "PyTorch", "Reinforcement Learning", "DQN", "Deep Learning", "Research"],
+    "link": "https://github.com/asayad1/MineSweeper-DQN",
+    "accent": ["#34d399", "#f472b6"],
+    "image": "./src/assets/images/clawdia_minesweeper.gif",
+    "video": "",
+    "poster": "",
+    "embed": "",
+    "gallery": [],
+    "paper": "src/assets/pdfs/Navigating Stochastic Environments with Deep Q Networks.pdf"
+  }
+]

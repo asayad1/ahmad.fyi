@@ -8,6 +8,15 @@ import {
   watch,
 } from "vue";
 import MosaicImage from "./components/MosaicImage.vue";
+import ProjectsCarousel from "./components/ProjectsCarousel.vue";
+import type { Project } from "./components/ProjectsCarousel.vue";
+import PixelPanel from "./components/PixelPanel.vue";
+import projectsData from "./data/projects.json";
+import { resolveAsset } from "./data/resolveAsset";
+
+// Same font stack the hero uses for "Ahmad is..."
+const headingFont =
+  '"Cal Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
 import APL from "@/assets/images/APL.png";
 import JHU from "@/assets/images/JHU.png";
 import UMBC from "@/assets/images/UMBC.png";
@@ -147,7 +156,7 @@ const portfolioImages: ImageItem[] = [
   },
   {
     url: JHU,
-    title: "pursuing a Master’s in AI at Johns Hopkins University.",
+    title: "a Master’s graduate in AI from Johns Hopkins University.",
     description:
       "Graduate-level focus on machine learning, AI systems, and applied research.",
   },
@@ -177,8 +186,8 @@ const highlightForTitle = (title: string): HighlightParts => {
       gradient: ["#0a35f6", "#5aaad8", "#06b6d4"],
     },
     {
-      match: "pursuing a Master’s in AI at Johns Hopkins University.",
-      highlight: "Master’s in AI",
+      match: "a Master’s graduate in AI from Johns Hopkins University.",
+      highlight: "Master’s graduate",
       gradient: ["#16def9", "#fffeffe4", "#7d5be2"],
     },
     {
@@ -236,10 +245,35 @@ watch(
   },
   { immediate: true },
 );
+
+// --- Projects section ---------------------------------------------------
+// Edit src/data/projects.json to manage these cards (see src/data/README.md).
+// Asset paths in the JSON point at source files; resolveAsset() rewrites them to
+// URLs that work in the production build (see src/data/resolveAsset.ts).
+const projects = (projectsData as Project[]).map((p) => ({
+  ...p,
+  image: resolveAsset(p.image),
+  video: resolveAsset(p.video),
+  poster: resolveAsset(p.poster),
+  paper: resolveAsset(p.paper),
+  gallery: p.gallery?.map((m) => ({
+    ...m,
+    image: resolveAsset(m.image),
+    video: resolveAsset(m.video),
+    poster: resolveAsset(m.poster),
+  })),
+}));
+
+const projectsRef = ref<HTMLElement | null>(null);
+
+const scrollToProjects = () => {
+  projectsRef.value?.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 </script>
 
 <template>
   <div :class="styles.app">
+    <section :class="styles.heroViewport">
     <main :class="styles.main">
       <section :class="styles.hero">
         <div
@@ -368,6 +402,75 @@ watch(
         </div>
       </section>
     </main>
+
+      <!-- Circular down-arrow scroll cue, centered at the bottom of the screen -->
+      <button
+        type="button"
+        :class="styles.scrollCue"
+        aria-label="Scroll to projects"
+        @click="scrollToProjects"
+      >
+        <svg
+          :class="styles.scrollArrow"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 5v14M5 12l7 7 7-7"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </section>
+
+    <!-- Projects carousel -->
+    <section ref="projectsRef" :class="styles.projectsSection">
+      <ProjectsCarousel :projects="projects" />
+    </section>
+
+    <!-- Videos -->
+    <section :class="styles.videosSection">
+      <div :class="styles.skillsInner">
+        <h2 :class="styles.skillsTitle">
+          <PixelPanel
+            :text="'Videos'"
+            :pixel-size="11"
+            :gap="2"
+            :font-size="120"
+            :padding="2"
+            :pixelate-text="false"
+            :font-family="headingFont"
+            cell-color="#c084fc"
+          >
+            <span :class="styles.videosLabel">Videos</span>
+          </PixelPanel>
+        </h2>
+      </div>
+    </section>
+
+    <!-- Skills & Tools -->
+    <section :class="styles.skillsSection">
+      <div :class="styles.skillsInner">
+        <h2 :class="styles.skillsTitle">
+          <PixelPanel
+            :text="'Skills & Tools'"
+            :pixel-size="11"
+            :gap="2"
+            :font-size="100"
+            :padding="2"
+            :pixelate-text="false"
+            :font-family="headingFont"
+            cell-color="#2ee6a0"
+          >
+            <span :class="styles.skillsLabel">Skills &amp; Tools</span>
+          </PixelPanel>
+        </h2>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -479,7 +582,164 @@ watch(
   min-height: 100vh;
   background: #0b0b0b; /* deep black */
   color: rgba(255, 255, 255, 0.92);
-  overflow: hidden;
+  overflow-x: hidden; /* allow vertical scroll to the projects section */
+}
+
+.heroViewport {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Circular down-arrow scroll cue at the bottom of the hero */
+.scrollCue {
+  margin: 0 auto;
+  margin-top: auto; /* push to the bottom of the hero viewport */
+  margin-bottom: 72px;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease,
+    box-shadow 200ms ease;
+  animation: cueFloat 3.4s ease-in-out infinite;
+}
+
+.scrollCue:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+}
+
+.scrollArrow {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes cueFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollCue {
+    animation: none;
+  }
+}
+
+.projectsSection {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0 60px;
+  scroll-margin-top: 0;
+}
+
+.videosSection {
+  position: relative;
+  z-index: 1;
+  padding: 20px 0 20px;
+}
+
+.skillsSection {
+  position: relative;
+  z-index: 1;
+  padding: 20px 0 120px;
+}
+
+.skillsInner {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.skillsTitle {
+  margin: 0;
+  line-height: 0;
+  width: 100%;
+}
+
+/* "Skills & Tools" over its pixel field — green/teal scheme. */
+.skillsLabel {
+  font-family:
+    "Cal Sans",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-weight: 400;
+  font-size: clamp(36px, 6.5vw, 90px);
+  line-height: 1.25;
+  padding-bottom: 0.12em;
+  letter-spacing: 0.015em;
+
+  background: linear-gradient(
+    90deg,
+    #059669,
+    #10b981,
+    #6ee7b7,
+    #2dd4bf,
+    #34d399
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 12px rgba(45, 212, 191, 0.22));
+  animation: gradientShift 3.4s ease-in-out infinite;
+}
+
+/* "Videos" over its pixel field — violet/magenta scheme. */
+.videosLabel {
+  font-family:
+    "Cal Sans",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-weight: 400;
+  font-size: clamp(48px, 9vw, 120px);
+  line-height: 1.25;
+  padding-bottom: 0.12em;
+  letter-spacing: 0.015em;
+
+  background: linear-gradient(
+    90deg,
+    #9333ea,
+    #a855f7,
+    #e879f9,
+    #d946ef,
+    #c084fc
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 12px rgba(217, 70, 239, 0.22));
+  animation: gradientShift 3.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skillsLabel,
+  .videosLabel {
+    animation: none;
+  }
 }
 
 .titleSlot {
