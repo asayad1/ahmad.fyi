@@ -2,7 +2,7 @@
   {
     "title": "Catastrophic Forgetting in LLMs",
     "description": "A study of catastrophic forgetting when GPT-2 small & medium is fine-tuned on the DailyDialog conversational dataset. Factual knowledge retention is tracked across training checkpoints using a QA benchmark derived from LAMA T-REx. The pipeline measures Knowledge Retention Rate, Fact Frequency Robustness (rare vs. common facts), and representation drift via cosine similarity of hidden states.",
-    "tags": ["Python", "PyTorch", "Transformers", "GPT", "LLM", "NLP", "Hugging Face", "Research"],
+    "tags": ["PyTorch", "Transformers", "LLMs", "NLP", "Research"],
     "link": "https://github.com/asayad1/CatastrophicForgetting",
     "accent": ["#0a35f6", "#0098d9"],
     "image": "./src/assets/images/clawdia_confused.gif",
@@ -15,7 +15,7 @@
   {
     "title": "Compute-Optimal Tiny Transformers",
     "description": "Replicating Chinchilla scaling laws at miniature scale. Tiny GPT-like models (12K–800K parameters) are trained on WikiText-103 across nine iso-compute FLOP budgets, with multiple seeds and two learning-rate schedules (matched and fixed-horizon). Validation losses are aggregated and fit to Chinchilla-style parametric loss surfaces, recovering compute-optimal model-size-to-token ratios and power-law scaling curves at small scale.",
-    "tags": ["Python", "PyTorch", "Scaling Laws", "Chinchilla", "LLM", "NLP", "Research"],
+    "tags": ["PyTorch", "Scaling Laws", "LLMs", "Research"],
     "link": "https://github.com/asayad1/SmallScalingLaws",
     "accent": ["#f59e0b", "#f9ec00"],
     "image": "./src/assets/images/clawdia_chinchilla.gif",
@@ -28,7 +28,7 @@
   {
     "title": "Conversational AutoML",
     "description": "An agentic system that runs automated machine learning on tabular data in response to natural-language questions. Six specialized agents — orchestration, feature engineering, a feature critic, analysis, a previous-results explainer, and a conversation meta-agent — interpret the user's intent, profile and preprocess the data, propose domain-agnostic feature transformations, and train a diverse set of candidate models evaluated by cross-validation, then explain the results conversationally. Multi-turn conversations track and reuse prior runs to avoid redundant retraining on follow-up questions.",
-    "tags": ["Python", "LLM", "Agents", "AutoML", "Machine Learning", "Ollama", "Agentic AI", "LangGraph"],
+    "tags": ["LLMs", "Agents", "LangGraph"],
     "link": "https://github.com/asayad1/Convo-AutoML",
     "accent": ["#7d5be2", "#5118f5"],
     "image": "./src/assets/images/clawdia_chats_with_lab_variant.gif",
@@ -41,7 +41,7 @@
   {
     "title": "Are LLM Circuits Stable Under Prompt Variance?",
     "description": "A mechanistic interpretability study probing whether the internal circuits a transformer uses to solve a task stay consistent when the prompt is reworded. Across a battery of prompt variants, circuit components and activation patterns are extracted and compared to test how robust learned circuits are to surface-level input changes — a question that bears directly on model interpretability and reliability. Built as the final project for the Deep Learning Using Transformers course at Johns Hopkins University.",
-    "tags": ["Python", "PyTorch", "Mechanistic Interpretability", "Transformers", "LLM", "Jupyter", "Research"],
+    "tags": ["PyTorch", "Mechanistic Interpretability", "Transformers", "LLMs", "Research"],
     "link": "https://github.com/asayad1/LLM-Prompt-Variance",
     "accent": ["#22d3ee", "#818cf8"],
     "image": "./src/assets/images/clawdia_circuit_boom.gif",
@@ -54,7 +54,7 @@
   {
     "title": "Latent Space Visualizer",
     "description": "An interactive tool for exploring and comparing the latent spaces learned by Autoencoders and Variational Autoencoders. Encodes a dataset into its compressed representation, then applies dimensionality reduction (PCA, t-SNE, UMAP) to project the latent manifold into 2D for visualization. Highlights the structural difference between AE latent spaces — which can be irregular and discontinuous — and VAE latent spaces, which are regularized by the KL divergence term into a smooth, traversable distribution. Supports sampling, interpolation, and class-colored overlays to make the geometry of learned representations tangible.",
-    "tags": ["Python", "PyTorch", "VAE", "Autoencoder", "Generative Models", "Visualization", "t-SNE", "UMAP", "Deep Learning"],
+    "tags": ["PyTorch", "VAE", "Autoencoder", "Generative Models", "Visualization", "t-SNE", "UMAP"],
     "link": "",
     "accent": ["#14b8a6", "#6366f1"],
     "image": "./src/assets/images/clawdia_shrunk_into_box.gif",
@@ -67,7 +67,7 @@
   {
     "title": "VAE Face Morpher",
     "description": "A face morphing system built on a Variational Autoencoder trained on face images. The encoder maps faces into a structured latent space, and smooth interpolations between two encoded points produce perceptually coherent morph sequences — faces that transition naturally from one identity to another without the artifacts of pixel-space blending. Explores how the VAE's regularized latent geometry enables meaningful traversal across identity, expression, and pose.",
-    "tags": ["Python", "PyTorch", "VAE", "Generative Models", "Computer Vision", "Deep Learning", "Face"],
+    "tags": ["PyTorch", "VAE", "Generative Models", "Computer Vision"],
     "link": "",
     "accent": ["#ec4899", "#a855f7"],
     "image": "",
@@ -80,10 +80,10 @@
   {
     "title": "AlexNet from Scratch",
     "description": "A ground-up reimplementation of AlexNet, the 2012 ImageNet-winning convolutional neural network that launched the deep learning era in computer vision. Rebuilt without high-level abstractions, covering the full architecture: five convolutional layers with ReLU activations, local response normalization, overlapping max-pooling, and three fully connected layers with dropout regularization. Trained on image classification benchmarks to reproduce the core results and gain a first-principles understanding of the design decisions that made AlexNet transformative.",
-    "tags": ["Python", "PyTorch", "CNN", "Computer Vision", "Deep Learning", "Image Classification"],
+    "tags": ["From Scratch", "PyTorch", "CNN", "Computer Vision", "Image Classification"],
     "link": "",
     "accent": ["#ef4444", "#f97316"],
-    "image": "",
+    "image": "./src/assets/images/clawdia_alexnet.gif",
     "video": "",
     "poster": "",
     "embed": "",
@@ -93,10 +93,10 @@
   {
     "title": "GPT from Scratch",
     "description": "A from-scratch implementation of the GPT architecture, building up the full decoder-only transformer: token and positional embeddings, masked multi-head self-attention, layer normalization, feed-forward blocks, and an autoregressive language modeling head. Trained on a text corpus to generate coherent continuations, with the implementation kept deliberately minimal to make every design choice visible — no framework abstractions hiding the mechanics of attention or the training loop.",
-    "tags": ["Python", "PyTorch", "Transformers", "GPT", "LLM", "NLP", "Deep Learning"],
+    "tags": ["From Scratch", "PyTorch", "Transformers", "LLMs", "NLP"],
     "link": "",
     "accent": ["#6366f1", "#8b5cf6"],
-    "image": "",
+    "image": "./src/assets/images/clawdia_gpt.gif",
     "video": "",
     "poster": "",
     "embed": "",
@@ -106,10 +106,23 @@
   {
     "title": "YOLO from Scratch",
     "description": "A ground-up implementation of the YOLO (You Only Look Once) real-time object detection architecture. The single-stage network divides each input image into a grid and simultaneously predicts bounding boxes, objectness scores, and class probabilities in one forward pass — trading the two-stage region-proposal pipeline for raw speed. Implemented from the original paper, including the custom loss function that balances localization, confidence, and classification terms, and evaluated on standard object detection benchmarks.",
-    "tags": ["Python", "PyTorch", "Computer Vision", "Object Detection", "Deep Learning", "YOLO"],
+    "tags": ["From Scratch", "PyTorch", "Computer Vision", "Object Detection", "YOLO"],
     "link": "",
     "accent": ["#84cc16", "#eab308"],
-    "image": "",
+    "image": "./src/assets/images/clawdia_yolo.gif",
+    "video": "",
+    "poster": "",
+    "embed": "",
+    "gallery": [],
+    "paper": ""
+  },
+  {
+    "title": "GANs from Scratch",
+    "description": "A ground-up implementation of generative adversarial networks, built up through the key milestones that made GANs stable and controllable. Starts with DCGANs — replacing fully connected layers with strided and transposed convolutions for image synthesis — then moves to Wasserstein GANs, which swap the original min-max objective for the Earth Mover's distance and weight clipping to tame the notoriously unstable training dynamics. WGAN-GP replaces clipping with a gradient penalty for smoother convergence, and conditional GANs add class labels to both generator and discriminator so generation can be steered toward specific categories. Each variant is implemented from the original paper to expose exactly how the loss formulation and architecture choices shape sample quality and training stability.",
+    "tags": ["From Scratch", "PyTorch", "GAN", "Generative Models"],
+    "link": "",
+    "accent": ["#d946ef", "#8b5cf6"],
+    "image": "./src/assets/images/clawdia_gan.gif",
     "video": "",
     "poster": "",
     "embed": "",
@@ -119,7 +132,7 @@
   {
     "title": "Inference & Rectification Service with Hard Negative Mining",
     "description": "A production-style ML service that pairs model inference with an active rectification loop driven by hard negative mining. During inference, the service identifies the examples closest to the decision boundary — the hardest misclassified negatives — and feeds them back into a targeted retraining step to sharpen the model where it is most uncertain. The architecture decouples the inference pipeline from the rectification scheduler, allowing continuous model improvement in deployment without full retraining cycles.",
-    "tags": ["Python", "Machine Learning", "Hard Negative Mining", "MLOps", "Deep Learning", "Service"],
+    "tags": ["Hard Negative Mining", "MLOps"],
     "link": "",
     "accent": ["#f43f5e", "#fb923c"],
     "image": "",
@@ -132,7 +145,7 @@
   {
     "title": "RAG with Reranker",
     "description": "A retrieval-augmented generation pipeline enhanced with a cross-encoder reranker stage between retrieval and generation. A dense bi-encoder retriever fetches a broad candidate set from a vector store; the reranker then scores each candidate against the query in a full cross-attention pass and promotes the most contextually relevant documents before they are handed to the LLM. The two-stage design captures the speed of approximate nearest-neighbor search while recovering the precision that bi-encoders sacrifice at retrieval time.",
-    "tags": ["Python", "RAG", "NLP", "LLM", "Reranker", "Vector Search", "Information Retrieval"],
+    "tags": ["RAG", "LLMs", "Reranker", "Vector Search"],
     "link": "",
     "accent": ["#06b6d4", "#3b82f6"],
     "image": "",
@@ -145,7 +158,7 @@
   {
     "title": "Minesweeper with Deep Q-Networks",
     "description": "A deep reinforcement learning agent that learns to play Minesweeper, navigating the game's partially observable, stochastic board to uncover safe cells while avoiding mines. A Deep Q-Network (DQN) pairs Q-learning with a neural network to learn a move policy directly from board state, extending DQN beyond the usual Atari benchmarks to a puzzle domain dominated by uncertainty. Accompanied by a written report, \"Navigating Stochastic Environments with Deep Q Networks.\"",
-    "tags": ["Python", "PyTorch", "Reinforcement Learning", "DQN", "Deep Learning", "Research"],
+    "tags": ["PyTorch", "Reinforcement Learning", "DQN", "Research"],
     "link": "https://github.com/asayad1/MineSweeper-DQN",
     "accent": ["#34d399", "#f472b6"],
     "image": "./src/assets/images/clawdia_minesweeper.gif",

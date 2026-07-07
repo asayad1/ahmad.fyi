@@ -6,8 +6,9 @@
 // project's `tags` array in projects.json. A chip only renders if at least one
 // project actually uses it, so listing an unused tag is harmless.
 export const FILTERABLE_TAGS: string[] = [
+  "From Scratch",
   "Research",
-  "LLM",
+  "LLMs",
   "Generative Models",
   "Agentic AI",
   "Reinforcement Learning",
