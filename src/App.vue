@@ -10,8 +10,11 @@ import {
 import MosaicImage from "./components/MosaicImage.vue";
 import ProjectsCarousel from "./components/ProjectsCarousel.vue";
 import type { Project } from "./components/ProjectsCarousel.vue";
+import NotesGrid from "./components/NotesGrid.vue";
+import type { Note } from "./components/NotesGrid.vue";
 import PixelPanel from "./components/PixelPanel.vue";
 import projectsData from "./data/projects.json";
+import notesData from "./data/notes.json";
 import { resolveAsset } from "./data/resolveAsset";
 
 // Same font stack the hero uses for "Ahmad is..."
@@ -264,6 +267,14 @@ const projects = (projectsData as Project[]).map((p) => ({
   })),
 }));
 
+// --- Notes section --------------------------------------------------------
+// Edit src/data/notes.json to manage these cards (see src/data/README.md).
+const notes = (notesData as Note[]).map((n) => ({
+  ...n,
+  image: resolveAsset(n.image),
+  pdf: resolveAsset(n.pdf),
+}));
+
 const projectsRef = ref<HTMLElement | null>(null);
 
 const scrollToProjects = () => {
@@ -471,6 +482,28 @@ const scrollToProjects = () => {
         </h2>
       </div>
     </section>
+
+    <!-- Notes -->
+    <section :class="styles.notesSection">
+      <div :class="styles.skillsInner">
+        <h2 :class="styles.skillsTitle">
+          <PixelPanel
+            :text="'Notes'"
+            :pixel-size="11"
+            :gap="2"
+            :font-size="100"
+            :padding="2"
+            :pixelate-text="false"
+            :font-family="headingFont"
+            cell-color="#f59e0b"
+          >
+            <span :class="styles.notesLabel">Notes</span>
+          </PixelPanel>
+        </h2>
+
+        <NotesGrid :notes="notes" />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -658,6 +691,12 @@ const scrollToProjects = () => {
 .skillsSection {
   position: relative;
   z-index: 1;
+  padding: 20px 0 20px;
+}
+
+.notesSection {
+  position: relative;
+  z-index: 1;
   padding: 20px 0 120px;
 }
 
@@ -735,9 +774,41 @@ const scrollToProjects = () => {
   animation: gradientShift 3.4s ease-in-out infinite;
 }
 
+/* "Notes" over its pixel field — amber/gold scheme. */
+.notesLabel {
+  font-family:
+    "Cal Sans",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-weight: 400;
+  font-size: clamp(36px, 6.5vw, 90px);
+  line-height: 1.25;
+  padding-bottom: 0.12em;
+  letter-spacing: 0.015em;
+
+  background: linear-gradient(
+    90deg,
+    #d97706,
+    #f59e0b,
+    #fcd34d,
+    #fbbf24,
+    #f59e0b
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 12px rgba(245, 158, 11, 0.22));
+  animation: gradientShift 3.4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .skillsLabel,
-  .videosLabel {
+  .videosLabel,
+  .notesLabel {
     animation: none;
   }
 }

@@ -80,3 +80,31 @@ Use any of:
 > what `resolveAsset()` (applied in `App.vue`) fixes.
 
 Leave a media field as `""` (or remove it) to skip it.
+
+# Notes data
+
+Edit `notes.json` to manage the cards in the Notes section. It's an array of
+note objects. Each card shows an image and a title; **clicking a card opens a
+large modal** with the PDF rendered full-size.
+
+## Fields
+
+| Field    | Required | Description |
+| -------- | -------- | ----------- |
+| `title`  | yes      | Card heading, also shown atop the modal. |
+| `pdf`    | yes      | The PDF (URL or `/public` path) rendered in the modal. |
+| `image`  | no       | Image used as the card cover. If omitted, an accent-colored placeholder is shown. |
+| `accent` | no       | Two hex colors `["#aabbcc", "#ddeeff"]` used for the card border and modal header tint. |
+
+```json
+{
+  "title": "Example Note",
+  "image": "./src/assets/images/example.png",
+  "pdf": "./src/assets/pdfs/example.pdf",
+  "accent": ["#f59e0b", "#fcd34d"]
+}
+```
+
+Asset paths follow the same rules as the Projects data above — drop PDFs under
+`src/assets/pdfs/` and reference them by that path (e.g.
+`"pdf": "./src/assets/pdfs/example.pdf"`); `resolveAsset()` handles the rest.
