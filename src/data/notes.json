@@ -1,1 +1,134 @@
-[]
+[
+  {
+    "title": "Introduction",
+    "image": "./src/assets/notes/Introduction.png",
+    "pdf": "./src/assets/notes/Introduction.pdf",
+    "accent": [
+      "#f59e0b",
+      "#fcd34d"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Supervised Learning",
+    "image": "./src/assets/notes/Supervised Learning.png",
+    "pdf": "./src/assets/notes/Supervised Learning.pdf",
+    "accent": [
+      "#d97706",
+      "#fbbf24"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Shallow Neural Networks",
+    "image": "./src/assets/notes/Shallow Neural Networks.png",
+    "pdf": "./src/assets/notes/Shallow Neural Networks.pdf",
+    "accent": [
+      "#f97316",
+      "#facc15"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Deep Neural Networks",
+    "image": "./src/assets/notes/Deep Neural Networks.png",
+    "pdf": "./src/assets/notes/Deep Neural Networks.pdf",
+    "accent": [
+      "#f59e0b",
+      "#f97316"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Measuring Performance",
+    "image": "./src/assets/notes/Measuring Performance.png",
+    "pdf": "./src/assets/notes/Measuring Performance.pdf",
+    "accent": [
+      "#fbbf24",
+      "#fde047"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Loss Functions",
+    "image": "./src/assets/notes/Loss Functions.png",
+    "pdf": "./src/assets/notes/Loss Functions.pdf",
+    "accent": [
+      "#d97706",
+      "#fcd34d"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Gradients and Initialization",
+    "image": "./src/assets/notes/Gradients and Initialization.png",
+    "pdf": "./src/assets/notes/Gradients and Initialization.pdf",
+    "accent": [
+      "#f97316",
+      "#fbbf24"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Fitting Models",
+    "image": "./src/assets/notes/Fitting Models.png",
+    "pdf": "./src/assets/notes/Fitting Models.pdf",
+    "accent": [
+      "#eab308",
+      "#fde047"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Regularization",
+    "image": "./src/assets/notes/Regularization.png",
+    "pdf": "./src/assets/notes/Regularization.pdf",
+    "accent": [
+      "#f59e0b",
+      "#facc15"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Convolutional Networks",
+    "image": "./src/assets/notes/Convolutional Networks.png",
+    "pdf": "./src/assets/notes/Convolutional Networks.pdf",
+    "accent": [
+      "#fb923c",
+      "#fbbf24"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  },
+  {
+    "title": "Residual Networks",
+    "image": "./src/assets/notes/Residual Networks.png",
+    "pdf": "./src/assets/notes/Residual Networks.pdf",
+    "accent": [
+      "#f59e0b",
+      "#fb923c"
+    ],
+    "tags": [
+      "Deep Learning"
+    ]
+  }
+]

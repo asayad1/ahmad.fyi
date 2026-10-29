@@ -14,3 +14,12 @@ export const FILTERABLE_TAGS: string[] = [
   "Reinforcement Learning",
   "Computer Vision",
 ];
+
+// The curated set of note tags that appear as toggleable filter chips above
+// the notes carousel, in this display order. Unlike the project chips, these
+// render even when no note uses them yet — e.g. "Generative Models" is kept
+// as a placeholder category for future notes.
+export const NOTES_FILTERABLE_TAGS: string[] = [
+  "Deep Learning",
+  "Generative Models",
+];

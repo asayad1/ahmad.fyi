@@ -83,9 +83,9 @@ Leave a media field as `""` (or remove it) to skip it.
 
 # Notes data
 
-Edit `notes.json` to manage the cards in the Notes section. It's an array of
-note objects. Each card shows an image and a title; **clicking a card opens a
-large modal** with the PDF rendered full-size.
+Edit `notes.json` to manage the cards in the Notes carousel. It's an array of
+note objects. Each card shows an image, a title, and tag pills; **clicking a
+card opens a large modal** with the PDF rendered full-size.
 
 ## Fields
 
@@ -93,6 +93,7 @@ large modal** with the PDF rendered full-size.
 | -------- | -------- | ----------- |
 | `title`  | yes      | Card heading, also shown atop the modal. |
 | `pdf`    | yes      | The PDF (URL or `/public` path) rendered in the modal. |
+| `tags`   | no       | Array of short strings shown as pills on the card, e.g. `["Deep Learning"]`. |
 | `image`  | no       | Image used as the card cover. If omitted, an accent-colored placeholder is shown. |
 | `accent` | no       | Two hex colors `["#aabbcc", "#ddeeff"]` used for the card border and modal header tint. |
 
@@ -101,6 +102,7 @@ large modal** with the PDF rendered full-size.
   "title": "Example Note",
   "image": "./src/assets/images/example.png",
   "pdf": "./src/assets/pdfs/example.pdf",
+  "tags": ["Deep Learning"],
   "accent": ["#f59e0b", "#fcd34d"]
 }
 ```
@@ -108,3 +110,12 @@ large modal** with the PDF rendered full-size.
 Asset paths follow the same rules as the Projects data above — drop PDFs under
 `src/assets/pdfs/` and reference them by that path (e.g.
 `"pdf": "./src/assets/pdfs/example.pdf"`); `resolveAsset()` handles the rest.
+
+## Filter chips
+
+Under the Notes header is a row of toggleable tag chips ("All" + curated tags)
+that filter the cards. Only the curated set listed in `filters.ts`
+(`NOTES_FILTERABLE_TAGS`) appears, in that order. Unlike the project chips,
+these render **even when unused** — a tag with no matching notes shows an
+empty state (e.g. "Generative Models" is a placeholder category for future
+notes). To make a note filterable, give it the exact tag string in its `tags`.
