@@ -357,7 +357,7 @@ const scrollToProjects = () => {
 
               <a
                 :class="styles.socialPill"
-                href="https://x.com/YOUR_USERNAME"
+                href="https://x.com/asayad1_"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X"
