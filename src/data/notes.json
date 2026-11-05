@@ -130,5 +130,18 @@
     "tags": [
       "Deep Learning"
     ]
+  },
+  {
+    "title": "Graph Neural Networks",
+    "image": "./src/assets/notes/Graph Neural Networks.png",
+    "pdf": "./src/assets/notes/Graph Neural Networks.pdf",
+    "accent": [
+      "#f97316",
+      "#facc15"
+    ],
+    "tags": [
+      "Deep Learning"
+    ],
+    "image": "./src/assets/notes/Graph Neural Networks.png"
   }
 ]
