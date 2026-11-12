@@ -132,6 +132,19 @@
     ]
   },
   {
+    "title": "Transformers",
+    "image": "./src/assets/notes/Transformers.png",
+    "pdf": "./src/assets/notes/Transformers.pdf",
+    "accent": [
+      "#eab308",
+      "#fbbf24"
+    ],
+    "tags": [
+      "Deep Learning",
+      "Generative Models"
+    ]
+  },
+  {
     "title": "Graph Neural Networks",
     "image": "./src/assets/notes/Graph Neural Networks.png",
     "pdf": "./src/assets/notes/Graph Neural Networks.pdf",
@@ -141,7 +154,6 @@
     ],
     "tags": [
       "Deep Learning"
-    ],
-    "image": "./src/assets/notes/Graph Neural Networks.png"
+    ]
   }
 ]
