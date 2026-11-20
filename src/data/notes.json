@@ -155,5 +155,18 @@
     "tags": [
       "Deep Learning"
     ]
+  },
+  {
+    "title": "Unsupervised Learning",
+    "image": "./src/assets/notes/Unsupervised Learning.png",
+    "pdf": "./src/assets/notes/Unsupervised Learning.pdf",
+    "accent": [
+      "#f59e0b",
+      "#fde047"
+    ],
+    "tags": [
+      "Deep Learning",
+      "Generative Models"
+    ]
   }
 ]
